@@ -1,1 +1,3 @@
 ## Aquí dejarás tu documentación, por qué decidiste realizar esas optimización y cómo resolvistes los ejercicios de lógica...
+
+Decidi observar valores magicos como la longitud del tablero y cambiarlos por una constante

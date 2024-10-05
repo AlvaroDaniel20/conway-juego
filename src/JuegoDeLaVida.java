@@ -8,11 +8,12 @@ public class JuegoDeLaVida {
         Random r = new Random();
         Scanner sc = new Scanner(System.in);
 
+        final int LONGITUDTABLERO = 5;
         int gen = 0;
 
         // Inicializar tablero aleatoriamente
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < LONGITUDTABLERO; i++) {
+            for (int j = 0; j < LONGITUDTABLERO; j++) {
                 tablero[i][j] = r.nextBoolean();
             }
         }
@@ -21,22 +22,22 @@ public class JuegoDeLaVida {
             System.out.println("Generación " + gen);
             
             // Mostrar tablero
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < LONGITUDTABLERO; i++) {
+                for (int j = 0; j < LONGITUDTABLERO; j++) {
                     System.out.print(tablero[i][j] ? "■ " : "□ ");
                 }
                 System.out.println();
             }
 
             // Calcular siguiente generación
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < LONGITUDTABLERO; i++) {
+                for (int j = 0; j < LONGITUDTABLERO; j++) {
                     int vecinosVivos = 0;
                     for (int di = -1; di <= 1; di++) {
                         for (int dj = -1; dj <= 1; dj++) {
                             if (di == 0 && dj == 0) continue;
-                            int fi = (i + di + 5) % 5;
-                            int fj = (j + dj + 5) % 5;
+                            int fi = (i + di + LONGITUDTABLERO) % 5;
+                            int fj = (j + dj + LONGITUDTABLERO) % 5;
                             if (tablero[fi][fj]) vecinosVivos++;
                         }
                     }
@@ -49,7 +50,7 @@ public class JuegoDeLaVida {
             }
 
             // Actualizar tablero
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < LONGITUDTABLERO; i++) {
                 System.arraycopy(nuevoTablero[i], 0, tablero[i], 0, 5);
             }
 
